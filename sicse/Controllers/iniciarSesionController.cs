@@ -19,7 +19,7 @@ namespace sicse.Controllers
             return View();
         }
 
-        public ActionResult fdss()
+        public ActionResult fdsss()
         {
             return View();
         }
