@@ -1,0 +1,119 @@
+﻿@model IEnumerable<sicse.Models.Usuario>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.primerApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.segundoApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clave)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Administrador.tipoadmon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coordinador.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inspector.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol.nombre)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.primerApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.segundoApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clave)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Administrador.tipoadmon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coordinador.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inspector.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rol.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idUsuario }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idUsuario }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idUsuario })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

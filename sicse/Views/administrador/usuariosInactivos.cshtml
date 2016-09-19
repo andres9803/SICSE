@@ -1,0 +1,90 @@
+﻿@model IEnumerable<sicse.Models.Usuario>
+
+@{
+    ViewBag.Title = "Usuarios inactivos";
+    Layout = "~/Views/plantilla/plantillaAdministrador.cshtml";
+}
+
+<h2>Lista de usuarios inactivos</h2>
+<hr />
+<br />
+<div class="table-responsive">
+
+    <table class="table">
+        <tr>
+            <th>
+                Nombres
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Segundo apellido
+            </th>
+
+            <th>
+                Documento
+            </th>
+            <th>
+                Correo
+            </th>
+
+            <th>
+                Telefono
+            </th>
+
+            <th>
+                Celular
+            </th>
+
+            <th>
+                Rol
+            </th>
+            <th> Editar </th>
+            <th> Inactivar </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.primerApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.segundoApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipoDocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.documento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.correo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.celular)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol.nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idUsuario }) |
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idUsuario })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

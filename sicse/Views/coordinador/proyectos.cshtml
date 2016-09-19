@@ -1,0 +1,72 @@
+﻿@model IEnumerable<sicse.Models.Proyecto>
+
+@{
+    ViewBag.Title = "proyectos";
+    Layout = "~/Views/plantilla/plantillaCoordinador.cshtml";
+}
+
+<h2>Lista de proyectos</h2>
+
+<hr />
+<br />
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Lugar
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Direccion
+            </th>
+            <th>
+                Ciudad
+            </th>
+            <th>
+                Edificio
+            </th>
+            <th>
+                Zona
+            </th>
+            <th>
+                Más información
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lugar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.edificio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zona1.codigo)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idProyecto })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

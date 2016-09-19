@@ -1,0 +1,101 @@
+﻿@model IEnumerable<sicse.Models.Programacion>
+
+@{
+    ViewBag.Title = "programacion";
+    Layout = "~/Views/plantilla/plantillaCoordinador.cshtml";
+}
+
+<h2>Lista de programaciones</h2>
+
+<hr />
+<br />
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Fecha de la solicitud
+            </th>
+            <th>
+                Fecha programada
+            </th>
+
+            <th>
+                Hora Final
+            </th>
+            <th>
+                Número de visita
+            </th>
+            <th>
+                Area
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Especificación
+            </th>
+            <th>
+                Nombre del Inspector
+            </th>
+            <th>
+                Nombre del proyecto
+            </th>
+            <th>
+                Editar
+            </th>
+            <th>
+                Eliminar
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaSolicitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaProgramada)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.horaFinal)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.numeroVisita)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.area)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equipos.especificacion)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inspector1.Usuario.nombres)
+                    @Html.DisplayFor(modelItem => item.Inspector1.Usuario.primerApellido)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proyecto1.nombre)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idProgramacion })
+                </td>
+
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idProgramacion })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

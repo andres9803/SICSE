@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5dcfa4e12edc418bb29f1f37544d5b9c" Name="Diagram1">
+        <EntityTypeShape EntityType="sicseModel.Administrador" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Ascensores" Width="1.5" PointX="15" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Calificacion" Width="1.5" PointX="9.625" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Coordinador" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Equipos" Width="1.5" PointX="12.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Escaleras" Width="1.5" PointX="15" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Formulario" Width="1.5" PointX="7.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Ingreso" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Inspector" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Item" Width="1.5" PointX="7.375" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Programacion" Width="1.5" PointX="10.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Proyecto" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Regional" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Rol" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.TipoEquipo" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Usuario" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="sicseModel.Zona" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="sicseModel.FK_Administrador_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Ascensores_Equipos1" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Calificacion_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Coordinador_Regional" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Coordinador_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Equipos_Proyecto1" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Equipos_TipoEquipo" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Escaleras_Equipos" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Programacion_Equipos" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Formulario_Inspector" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Formulario_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_ingreso_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Inspector_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Programacion_Inspector" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Programacion_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Proyecto_Zona" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Zona_Regional" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.FK_Usuario_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="sicseModel.Ingeniero" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

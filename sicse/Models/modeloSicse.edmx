@@ -1,0 +1,1240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sicseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="int" Nullable="false" />
+          <Property Name="tipoadmon" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Ascensores">
+          <Key>
+            <PropertyRef Name="idAsensor" />
+          </Key>
+          <Property Name="idAsensor" Type="int" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="numeroPisos" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Calificacion">
+          <Key>
+            <PropertyRef Name="idCalificacion" />
+          </Key>
+          <Property Name="idCalificacion" Type="int" Nullable="false" />
+          <Property Name="tipoCalifacion" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Coordinador">
+          <Key>
+            <PropertyRef Name="idCoordinador" />
+          </Key>
+          <Property Name="idCoordinador" Type="int" Nullable="false" />
+          <Property Name="regional" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Equipos">
+          <Key>
+            <PropertyRef Name="idEquipos" />
+          </Key>
+          <Property Name="idEquipos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="especificacion" Type="varchar" MaxLength="200" />
+          <Property Name="modelo" Type="varchar" MaxLength="25" />
+          <Property Name="Proyecto" Type="int" Nullable="false" />
+          <Property Name="tipoEquipo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Escaleras">
+          <Key>
+            <PropertyRef Name="idEscalera" />
+          </Key>
+          <Property Name="idEscalera" Type="int" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Formulario">
+          <Key>
+            <PropertyRef Name="idFormulario" />
+          </Key>
+          <Property Name="idFormulario" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="25" />
+          <Property Name="idPlantillaFormulario" Type="int" />
+          <Property Name="Inspector" Type="int" Nullable="false" />
+          <Property Name="Item" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Ingeniero">
+          <Key>
+            <PropertyRef Name="Ingeniero" />
+          </Key>
+          <Property Name="Ingeniero" Type="int" Nullable="false" />
+          <Property Name="zona" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingreso">
+          <Key>
+            <PropertyRef Name="idIngreso" />
+          </Key>
+          <Property Name="idIngreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaIngreso" Type="datetime" Nullable="false" />
+          <Property Name="Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inspector">
+          <Key>
+            <PropertyRef Name="idInspector" />
+          </Key>
+          <Property Name="idInspector" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="idItem" />
+          </Key>
+          <Property Name="idItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tiulo" Type="varchar" MaxLength="50" />
+          <Property Name="item" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Programacion">
+          <Key>
+            <PropertyRef Name="idProgramacion" />
+          </Key>
+          <Property Name="idProgramacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaSolicitud" Type="date" />
+          <Property Name="fechaProgramada" Type="datetime" Nullable="false" />
+          <Property Name="horaInicial" Type="datetime" Nullable="false" />
+          <Property Name="horaFinal" Type="datetime" Nullable="false" />
+          <Property Name="numeroVisita" Type="int" />
+          <Property Name="area" Type="varchar" MaxLength="25" />
+          <Property Name="estado" Type="varchar" MaxLength="20" />
+          <Property Name="Proyecto" Type="int" Nullable="false" />
+          <Property Name="Equipo" Type="int" Nullable="false" />
+          <Property Name="Inspector" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="idProyecto" />
+          </Key>
+          <Property Name="idProyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="lugar" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ciudad" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="edificio" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Zona" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Regional">
+          <Key>
+            <PropertyRef Name="idRegional" />
+          </Key>
+          <Property Name="idRegional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="TipoEquipo">
+          <Key>
+            <PropertyRef Name="idTipoEquipo" />
+          </Key>
+          <Property Name="idTipoEquipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombres" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="primerApellido" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="segundoApellido" Type="varchar" MaxLength="15" />
+          <Property Name="tipoDocumento" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="documento" Type="bigint" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="clave" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="telefono" Type="bigint" Nullable="false" />
+          <Property Name="celular" Type="bigint" />
+          <Property Name="idRol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zona">
+          <Key>
+            <PropertyRef Name="idZona" />
+          </Key>
+          <Property Name="idZona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Regional" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Administrador_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Administrador">
+              <PropertyRef Name="idAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ascensores_Equipos1">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="Ascensores" Type="Self.Ascensores" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="idEquipos" />
+            </Principal>
+            <Dependent Role="Ascensores">
+              <PropertyRef Name="idAsensor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calificacion_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Calificacion" Type="Self.Calificacion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="idItem" />
+            </Principal>
+            <Dependent Role="Calificacion">
+              <PropertyRef Name="idCalificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coordinador_Regional">
+          <End Role="Regional" Type="Self.Regional" Multiplicity="1" />
+          <End Role="Coordinador" Type="Self.Coordinador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regional">
+              <PropertyRef Name="idRegional" />
+            </Principal>
+            <Dependent Role="Coordinador">
+              <PropertyRef Name="regional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coordinador_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Coordinador" Type="Self.Coordinador" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Coordinador">
+              <PropertyRef Name="idCoordinador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipos_Proyecto1">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipos_TipoEquipo">
+          <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="1" />
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEquipo">
+              <PropertyRef Name="idTipoEquipo" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="tipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Escaleras_Equipos">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="Escaleras" Type="Self.Escaleras" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="idEquipos" />
+            </Principal>
+            <Dependent Role="Escaleras">
+              <PropertyRef Name="idEscalera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formulario_Inspector">
+          <End Role="Inspector" Type="Self.Inspector" Multiplicity="1" />
+          <End Role="Formulario" Type="Self.Formulario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inspector">
+              <PropertyRef Name="idInspector" />
+            </Principal>
+            <Dependent Role="Formulario">
+              <PropertyRef Name="Inspector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formulario_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Formulario" Type="Self.Formulario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="idItem" />
+            </Principal>
+            <Dependent Role="Formulario">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingeniero_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Ingeniero" Type="Self.Ingeniero" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Ingeniero">
+              <PropertyRef Name="Ingeniero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingeniero_Zona">
+          <End Role="Zona" Type="Self.Zona" Multiplicity="1" />
+          <End Role="Ingeniero" Type="Self.Ingeniero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zona">
+              <PropertyRef Name="idZona" />
+            </Principal>
+            <Dependent Role="Ingeniero">
+              <PropertyRef Name="zona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ingreso_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Ingreso">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inspector_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Inspector" Type="Self.Inspector" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Inspector">
+              <PropertyRef Name="idInspector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programacion_Equipos">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="Programacion" Type="Self.Programacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="idEquipos" />
+            </Principal>
+            <Dependent Role="Programacion">
+              <PropertyRef Name="Equipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programacion_Inspector">
+          <End Role="Inspector" Type="Self.Inspector" Multiplicity="1" />
+          <End Role="Programacion" Type="Self.Programacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inspector">
+              <PropertyRef Name="idInspector" />
+            </Principal>
+            <Dependent Role="Programacion">
+              <PropertyRef Name="Inspector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programacion_Proyecto">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Programacion" Type="Self.Programacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Programacion">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proyecto_Zona">
+          <End Role="Zona" Type="Self.Zona" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zona">
+              <PropertyRef Name="idZona" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="Zona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zona_Regional">
+          <End Role="Regional" Type="Self.Regional" Multiplicity="1" />
+          <End Role="Zona" Type="Self.Zona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regional">
+              <PropertyRef Name="idRegional" />
+            </Principal>
+            <Dependent Role="Zona">
+              <PropertyRef Name="Regional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sicseModelStoreContainer">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ascensores" EntityType="Self.Ascensores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calificacion" EntityType="Self.Calificacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coordinador" EntityType="Self.Coordinador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Escaleras" EntityType="Self.Escaleras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formulario" EntityType="Self.Formulario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingeniero" EntityType="Self.Ingeniero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingreso" EntityType="Self.Ingreso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inspector" EntityType="Self.Inspector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Programacion" EntityType="Self.Programacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regional" EntityType="Self.Regional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEquipo" EntityType="Self.TipoEquipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zona" EntityType="Self.Zona" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Administrador_Usuario" Association="Self.FK_Administrador_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Administrador" EntitySet="Administrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ascensores_Equipos1" Association="Self.FK_Ascensores_Equipos1">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Ascensores" EntitySet="Ascensores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calificacion_Item" Association="Self.FK_Calificacion_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Calificacion" EntitySet="Calificacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coordinador_Regional" Association="Self.FK_Coordinador_Regional">
+            <End Role="Regional" EntitySet="Regional" />
+            <End Role="Coordinador" EntitySet="Coordinador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coordinador_Usuario" Association="Self.FK_Coordinador_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Coordinador" EntitySet="Coordinador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipos_Proyecto1" Association="Self.FK_Equipos_Proyecto1">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipos_TipoEquipo" Association="Self.FK_Equipos_TipoEquipo">
+            <End Role="TipoEquipo" EntitySet="TipoEquipo" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Escaleras_Equipos" Association="Self.FK_Escaleras_Equipos">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Escaleras" EntitySet="Escaleras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formulario_Inspector" Association="Self.FK_Formulario_Inspector">
+            <End Role="Inspector" EntitySet="Inspector" />
+            <End Role="Formulario" EntitySet="Formulario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formulario_Item" Association="Self.FK_Formulario_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Formulario" EntitySet="Formulario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingeniero_Usuario" Association="Self.FK_Ingeniero_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Ingeniero" EntitySet="Ingeniero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingeniero_Zona" Association="Self.FK_Ingeniero_Zona">
+            <End Role="Zona" EntitySet="Zona" />
+            <End Role="Ingeniero" EntitySet="Ingeniero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ingreso_Usuario" Association="Self.FK_ingreso_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Ingreso" EntitySet="Ingreso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inspector_Usuario" Association="Self.FK_Inspector_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Inspector" EntitySet="Inspector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programacion_Equipos" Association="Self.FK_Programacion_Equipos">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Programacion" EntitySet="Programacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programacion_Inspector" Association="Self.FK_Programacion_Inspector">
+            <End Role="Inspector" EntitySet="Inspector" />
+            <End Role="Programacion" EntitySet="Programacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programacion_Proyecto" Association="Self.FK_Programacion_Proyecto">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Programacion" EntitySet="Programacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proyecto_Zona" Association="Self.FK_Proyecto_Zona">
+            <End Role="Zona" EntitySet="Zona" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zona_Regional" Association="Self.FK_Zona_Regional">
+            <End Role="Regional" EntitySet="Regional" />
+            <End Role="Zona" EntitySet="Zona" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sicseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="Int32" Nullable="false" />
+          <Property Name="tipoadmon" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Administrador_Usuario" FromRole="Administrador" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Ascensores">
+          <Key>
+            <PropertyRef Name="idAsensor" />
+          </Key>
+          <Property Name="idAsensor" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Equipos" Relationship="Self.FK_Ascensores_Equipos1" FromRole="Ascensores" ToRole="Equipos" />
+          <Property Name="numeroPisos" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Calificacion">
+          <Key>
+            <PropertyRef Name="idCalificacion" />
+          </Key>
+          <Property Name="idCalificacion" Type="Int32" Nullable="false" />
+          <Property Name="tipoCalifacion" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Calificacion_Item" FromRole="Calificacion" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Coordinador">
+          <Key>
+            <PropertyRef Name="idCoordinador" />
+          </Key>
+          <Property Name="idCoordinador" Type="Int32" Nullable="false" />
+          <Property Name="regional" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Regional1" Relationship="Self.FK_Coordinador_Regional" FromRole="Coordinador" ToRole="Regional" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Coordinador_Usuario" FromRole="Coordinador" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Equipos">
+          <Key>
+            <PropertyRef Name="idEquipos" />
+          </Key>
+          <Property Name="idEquipos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="especificacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="modelo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Proyecto" Type="Int32" Nullable="false" />
+          <Property Name="tipoEquipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ascensores" Relationship="Self.FK_Ascensores_Equipos1" FromRole="Equipos" ToRole="Ascensores" />
+          <NavigationProperty Name="Proyecto1" Relationship="Self.FK_Equipos_Proyecto1" FromRole="Equipos" ToRole="Proyecto" />
+          <NavigationProperty Name="TipoEquipo1" Relationship="Self.FK_Equipos_TipoEquipo" FromRole="Equipos" ToRole="TipoEquipo" />
+          <NavigationProperty Name="Escaleras" Relationship="Self.FK_Escaleras_Equipos" FromRole="Equipos" ToRole="Escaleras" />
+          <NavigationProperty Name="Programacion" Relationship="Self.FK_Programacion_Equipos" FromRole="Equipos" ToRole="Programacion" />
+        </EntityType>
+        <EntityType Name="Escaleras">
+          <Key>
+            <PropertyRef Name="idEscalera" />
+          </Key>
+          <Property Name="idEscalera" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Equipos" Relationship="Self.FK_Escaleras_Equipos" FromRole="Escaleras" ToRole="Equipos" />
+        </EntityType>
+        <EntityType Name="Formulario">
+          <Key>
+            <PropertyRef Name="idFormulario" />
+          </Key>
+          <Property Name="idFormulario" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="idPlantillaFormulario" Type="Int32" />
+          <Property Name="Inspector" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inspector1" Relationship="Self.FK_Formulario_Inspector" FromRole="Formulario" ToRole="Inspector" />
+          <NavigationProperty Name="Item1" Relationship="Self.FK_Formulario_Item" FromRole="Formulario" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Ingreso">
+          <Key>
+            <PropertyRef Name="idIngreso" />
+          </Key>
+          <Property Name="idIngreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario1" Relationship="Self.FK_ingreso_Usuario" FromRole="Ingreso" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Inspector">
+          <Key>
+            <PropertyRef Name="idInspector" />
+          </Key>
+          <Property Name="idInspector" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Formulario" Relationship="Self.FK_Formulario_Inspector" FromRole="Inspector" ToRole="Formulario" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Inspector_Usuario" FromRole="Inspector" ToRole="Usuario" />
+          <NavigationProperty Name="Programacion" Relationship="Self.FK_Programacion_Inspector" FromRole="Inspector" ToRole="Programacion" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="idItem" />
+          </Key>
+          <Property Name="idItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tiulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="item1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Calificacion" Relationship="Self.FK_Calificacion_Item" FromRole="Item" ToRole="Calificacion" />
+          <NavigationProperty Name="Formulario" Relationship="Self.FK_Formulario_Item" FromRole="Item" ToRole="Formulario" />
+        </EntityType>
+        <EntityType Name="Programacion">
+          <Key>
+            <PropertyRef Name="idProgramacion" />
+          </Key>
+          <Property Name="idProgramacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaSolicitud" Type="DateTime" Precision="0" />
+          <Property Name="fechaProgramada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="horaInicial" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="horaFinal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="numeroVisita" Type="Int32" />
+          <Property Name="area" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Proyecto" Type="Int32" Nullable="false" />
+          <Property Name="Equipo" Type="Int32" Nullable="false" />
+          <Property Name="Inspector" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipos" Relationship="Self.FK_Programacion_Equipos" FromRole="Programacion" ToRole="Equipos" />
+          <NavigationProperty Name="Inspector1" Relationship="Self.FK_Programacion_Inspector" FromRole="Programacion" ToRole="Inspector" />
+          <NavigationProperty Name="Proyecto1" Relationship="Self.FK_Programacion_Proyecto" FromRole="Programacion" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="idProyecto" />
+          </Key>
+          <Property Name="idProyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lugar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="edificio" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Zona" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipos" Relationship="Self.FK_Equipos_Proyecto1" FromRole="Proyecto" ToRole="Equipos" />
+          <NavigationProperty Name="Programacion" Relationship="Self.FK_Programacion_Proyecto" FromRole="Proyecto" ToRole="Programacion" />
+          <NavigationProperty Name="Zona1" Relationship="Self.FK_Proyecto_Zona" FromRole="Proyecto" ToRole="Zona" />
+        </EntityType>
+        <EntityType Name="Regional">
+          <Key>
+            <PropertyRef Name="idRegional" />
+          </Key>
+          <Property Name="idRegional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Coordinador" Relationship="Self.FK_Coordinador_Regional" FromRole="Regional" ToRole="Coordinador" />
+          <NavigationProperty Name="Zona" Relationship="Self.FK_Zona_Regional" FromRole="Regional" ToRole="Zona" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoEquipo">
+          <Key>
+            <PropertyRef Name="idTipoEquipo" />
+          </Key>
+          <Property Name="idTipoEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipos" Relationship="Self.FK_Equipos_TipoEquipo" FromRole="TipoEquipo" ToRole="Equipos" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombres" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="primerApellido" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="segundoApellido" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tipoDocumento" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="documento" Type="Int64" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="Int64" Nullable="false" />
+          <Property Name="celular" Type="Int64" />
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Administrador" Relationship="Self.FK_Administrador_Usuario" FromRole="Usuario" ToRole="Administrador" />
+          <NavigationProperty Name="Coordinador" Relationship="Self.FK_Coordinador_Usuario" FromRole="Usuario" ToRole="Coordinador" />
+          <NavigationProperty Name="Ingreso" Relationship="Self.FK_ingreso_Usuario" FromRole="Usuario" ToRole="Ingreso" />
+          <NavigationProperty Name="Inspector" Relationship="Self.FK_Inspector_Usuario" FromRole="Usuario" ToRole="Inspector" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+          <NavigationProperty Name="Zona" Relationship="Self.Ingeniero" FromRole="Usuario" ToRole="Zona" />
+        </EntityType>
+        <EntityType Name="Zona">
+          <Key>
+            <PropertyRef Name="idZona" />
+          </Key>
+          <Property Name="idZona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Regional" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK_Proyecto_Zona" FromRole="Zona" ToRole="Proyecto" />
+          <NavigationProperty Name="Regional1" Relationship="Self.FK_Zona_Regional" FromRole="Zona" ToRole="Regional" />
+          <NavigationProperty Name="Usuario" Relationship="Self.Ingeniero" FromRole="Zona" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Administrador_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Administrador">
+              <PropertyRef Name="idAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ascensores_Equipos1">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="Ascensores" Type="Self.Ascensores" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="idEquipos" />
+            </Principal>
+            <Dependent Role="Ascensores">
+              <PropertyRef Name="idAsensor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calificacion_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Calificacion" Type="Self.Calificacion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="idItem" />
+            </Principal>
+            <Dependent Role="Calificacion">
+              <PropertyRef Name="idCalificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coordinador_Regional">
+          <End Role="Regional" Type="Self.Regional" Multiplicity="1" />
+          <End Role="Coordinador" Type="Self.Coordinador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regional">
+              <PropertyRef Name="idRegional" />
+            </Principal>
+            <Dependent Role="Coordinador">
+              <PropertyRef Name="regional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coordinador_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Coordinador" Type="Self.Coordinador" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Coordinador">
+              <PropertyRef Name="idCoordinador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipos_Proyecto1">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipos_TipoEquipo">
+          <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="1" />
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEquipo">
+              <PropertyRef Name="idTipoEquipo" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="tipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Escaleras_Equipos">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="Escaleras" Type="Self.Escaleras" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="idEquipos" />
+            </Principal>
+            <Dependent Role="Escaleras">
+              <PropertyRef Name="idEscalera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programacion_Equipos">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="Programacion" Type="Self.Programacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="idEquipos" />
+            </Principal>
+            <Dependent Role="Programacion">
+              <PropertyRef Name="Equipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formulario_Inspector">
+          <End Role="Inspector" Type="Self.Inspector" Multiplicity="1" />
+          <End Role="Formulario" Type="Self.Formulario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inspector">
+              <PropertyRef Name="idInspector" />
+            </Principal>
+            <Dependent Role="Formulario">
+              <PropertyRef Name="Inspector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formulario_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Formulario" Type="Self.Formulario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="idItem" />
+            </Principal>
+            <Dependent Role="Formulario">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ingreso_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Ingreso" Type="Self.Ingreso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Ingreso">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inspector_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Inspector" Type="Self.Inspector" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Inspector">
+              <PropertyRef Name="idInspector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programacion_Inspector">
+          <End Role="Inspector" Type="Self.Inspector" Multiplicity="1" />
+          <End Role="Programacion" Type="Self.Programacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inspector">
+              <PropertyRef Name="idInspector" />
+            </Principal>
+            <Dependent Role="Programacion">
+              <PropertyRef Name="Inspector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programacion_Proyecto">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Programacion" Type="Self.Programacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Programacion">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proyecto_Zona">
+          <End Role="Zona" Type="Self.Zona" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zona">
+              <PropertyRef Name="idZona" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="Zona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zona_Regional">
+          <End Role="Regional" Type="Self.Regional" Multiplicity="1" />
+          <End Role="Zona" Type="Self.Zona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regional">
+              <PropertyRef Name="idRegional" />
+            </Principal>
+            <Dependent Role="Zona">
+              <PropertyRef Name="Regional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Ingeniero">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <End Role="Zona" Type="Self.Zona" Multiplicity="0..1" />
+        </Association>
+        <EntityContainer Name="sicseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="Ascensores" EntityType="Self.Ascensores" />
+          <EntitySet Name="Calificacion" EntityType="Self.Calificacion" />
+          <EntitySet Name="Coordinador" EntityType="Self.Coordinador" />
+          <EntitySet Name="Equipos" EntityType="Self.Equipos" />
+          <EntitySet Name="Escaleras" EntityType="Self.Escaleras" />
+          <EntitySet Name="Formulario" EntityType="Self.Formulario" />
+          <EntitySet Name="Ingreso" EntityType="Self.Ingreso" />
+          <EntitySet Name="Inspector" EntityType="Self.Inspector" />
+          <EntitySet Name="Item" EntityType="Self.Item" />
+          <EntitySet Name="Programacion" EntityType="Self.Programacion" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" />
+          <EntitySet Name="Regional" EntityType="Self.Regional" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="TipoEquipo" EntityType="Self.TipoEquipo" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Zona" EntityType="Self.Zona" />
+          <AssociationSet Name="FK_Administrador_Usuario" Association="Self.FK_Administrador_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Administrador" EntitySet="Administrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ascensores_Equipos1" Association="Self.FK_Ascensores_Equipos1">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Ascensores" EntitySet="Ascensores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calificacion_Item" Association="Self.FK_Calificacion_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Calificacion" EntitySet="Calificacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coordinador_Regional" Association="Self.FK_Coordinador_Regional">
+            <End Role="Regional" EntitySet="Regional" />
+            <End Role="Coordinador" EntitySet="Coordinador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coordinador_Usuario" Association="Self.FK_Coordinador_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Coordinador" EntitySet="Coordinador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipos_Proyecto1" Association="Self.FK_Equipos_Proyecto1">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipos_TipoEquipo" Association="Self.FK_Equipos_TipoEquipo">
+            <End Role="TipoEquipo" EntitySet="TipoEquipo" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Escaleras_Equipos" Association="Self.FK_Escaleras_Equipos">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Escaleras" EntitySet="Escaleras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programacion_Equipos" Association="Self.FK_Programacion_Equipos">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Programacion" EntitySet="Programacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formulario_Inspector" Association="Self.FK_Formulario_Inspector">
+            <End Role="Inspector" EntitySet="Inspector" />
+            <End Role="Formulario" EntitySet="Formulario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formulario_Item" Association="Self.FK_Formulario_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Formulario" EntitySet="Formulario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ingreso_Usuario" Association="Self.FK_ingreso_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Ingreso" EntitySet="Ingreso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inspector_Usuario" Association="Self.FK_Inspector_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Inspector" EntitySet="Inspector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programacion_Inspector" Association="Self.FK_Programacion_Inspector">
+            <End Role="Inspector" EntitySet="Inspector" />
+            <End Role="Programacion" EntitySet="Programacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programacion_Proyecto" Association="Self.FK_Programacion_Proyecto">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Programacion" EntitySet="Programacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proyecto_Zona" Association="Self.FK_Proyecto_Zona">
+            <End Role="Zona" EntitySet="Zona" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zona_Regional" Association="Self.FK_Zona_Regional">
+            <End Role="Regional" EntitySet="Regional" />
+            <End Role="Zona" EntitySet="Zona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="Ingeniero" Association="Self.Ingeniero">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Zona" EntitySet="Zona" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sicseModelStoreContainer" CdmEntityContainer="sicseEntities">
+          <EntitySetMapping Name="Administrador">
+            <EntityTypeMapping TypeName="sicseModel.Administrador">
+              <MappingFragment StoreEntitySet="Administrador">
+                <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
+                <ScalarProperty Name="tipoadmon" ColumnName="tipoadmon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ascensores">
+            <EntityTypeMapping TypeName="sicseModel.Ascensores">
+              <MappingFragment StoreEntitySet="Ascensores">
+                <ScalarProperty Name="numeroPisos" ColumnName="numeroPisos" />
+                <ScalarProperty Name="idAsensor" ColumnName="idAsensor" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calificacion">
+            <EntityTypeMapping TypeName="sicseModel.Calificacion">
+              <MappingFragment StoreEntitySet="Calificacion">
+                <ScalarProperty Name="idCalificacion" ColumnName="idCalificacion" />
+                <ScalarProperty Name="tipoCalifacion" ColumnName="tipoCalifacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coordinador">
+            <EntityTypeMapping TypeName="sicseModel.Coordinador">
+              <MappingFragment StoreEntitySet="Coordinador">
+                <ScalarProperty Name="idCoordinador" ColumnName="idCoordinador" />
+                <ScalarProperty Name="regional" ColumnName="regional" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipos">
+            <EntityTypeMapping TypeName="sicseModel.Equipos">
+              <MappingFragment StoreEntitySet="Equipos">
+                <ScalarProperty Name="idEquipos" ColumnName="idEquipos" />
+                <ScalarProperty Name="especificacion" ColumnName="especificacion" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="tipoEquipo" ColumnName="tipoEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Escaleras">
+            <EntityTypeMapping TypeName="sicseModel.Escaleras">
+              <MappingFragment StoreEntitySet="Escaleras">
+                <ScalarProperty Name="idEscalera" ColumnName="idEscalera" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formulario">
+            <EntityTypeMapping TypeName="sicseModel.Formulario">
+              <MappingFragment StoreEntitySet="Formulario">
+                <ScalarProperty Name="idFormulario" ColumnName="idFormulario" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="idPlantillaFormulario" ColumnName="idPlantillaFormulario" />
+                <ScalarProperty Name="Inspector" ColumnName="Inspector" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingreso">
+            <EntityTypeMapping TypeName="sicseModel.Ingreso">
+              <MappingFragment StoreEntitySet="Ingreso">
+                <ScalarProperty Name="idIngreso" ColumnName="idIngreso" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inspector">
+            <EntityTypeMapping TypeName="sicseModel.Inspector">
+              <MappingFragment StoreEntitySet="Inspector">
+                <ScalarProperty Name="idInspector" ColumnName="idInspector" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="sicseModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="idItem" ColumnName="idItem" />
+                <ScalarProperty Name="Tiulo" ColumnName="Tiulo" />
+                <ScalarProperty Name="item1" ColumnName="item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Programacion">
+            <EntityTypeMapping TypeName="sicseModel.Programacion">
+              <MappingFragment StoreEntitySet="Programacion">
+                <ScalarProperty Name="idProgramacion" ColumnName="idProgramacion" />
+                <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
+                <ScalarProperty Name="fechaProgramada" ColumnName="fechaProgramada" />
+                <ScalarProperty Name="horaInicial" ColumnName="horaInicial" />
+                <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
+                <ScalarProperty Name="numeroVisita" ColumnName="numeroVisita" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+                <ScalarProperty Name="Inspector" ColumnName="Inspector" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyecto">
+            <EntityTypeMapping TypeName="sicseModel.Proyecto">
+              <MappingFragment StoreEntitySet="Proyecto">
+                <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="lugar" ColumnName="lugar" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="edificio" ColumnName="edificio" />
+                <ScalarProperty Name="Zona" ColumnName="Zona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regional">
+            <EntityTypeMapping TypeName="sicseModel.Regional">
+              <MappingFragment StoreEntitySet="Regional">
+                <ScalarProperty Name="idRegional" ColumnName="idRegional" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="sicseModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEquipo">
+            <EntityTypeMapping TypeName="sicseModel.TipoEquipo">
+              <MappingFragment StoreEntitySet="TipoEquipo">
+                <ScalarProperty Name="idTipoEquipo" ColumnName="idTipoEquipo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="sicseModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+                <ScalarProperty Name="tipoDocumento" ColumnName="tipoDocumento" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zona">
+            <EntityTypeMapping TypeName="sicseModel.Zona">
+              <MappingFragment StoreEntitySet="Zona">
+                <ScalarProperty Name="idZona" ColumnName="idZona" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Regional" ColumnName="Regional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Ingeniero" TypeName="sicseModel.Ingeniero" StoreEntitySet="Ingeniero">
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="idUsuario" ColumnName="Ingeniero" />
+            </EndProperty>
+            <EndProperty Name="Zona">
+              <ScalarProperty Name="idZona" ColumnName="zona" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

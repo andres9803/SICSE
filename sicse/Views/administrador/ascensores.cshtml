@@ -1,0 +1,70 @@
+﻿@model IEnumerable<sicse.Models.Equipos>
+
+@{
+    ViewBag.Title = "Ascensores";
+    Layout = "~/Views/plantilla/plantillaAdministrador.cshtml";
+}
+
+<h2>Lista de Ascensores</h2>
+<hr />
+<br />
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Código
+            </th>
+
+            <th>
+                Especificación
+            </th>
+
+            <th>
+                Modelo
+            </th>
+
+            <th>
+                Número de pisos
+            </th>
+
+            <th>
+                Nombre del proyecto
+            </th>
+
+            <th>
+                Código del proyecto
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ascensores.codigo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.especificacion)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ascensores.numeroPisos)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proyecto1.nombre)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proyecto1.codigo)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
